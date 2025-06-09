@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Buy Ticket</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: #f0f8ff;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 500px;
+            margin: 50px auto;
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        label {
+            font-weight: bold;
+        }
+        .info {
+            margin-bottom: 15px;
+        }
+        select, button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            font-size: 16px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+        }
+        button {
+            background-color: #28a745;
+            color: white;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        .back-link {
+            display: block;
+            margin-top: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Confirm Ticket Booking</h2>
+        <div class="info"><label>User:</label> {{ user[1] }}</div>
+        <div class="info"><label>Email:</label> {{ user[3] }}</div>
+        <div class="info"><label>Phone:</label> {{ user[2] }}</div>
+
+        <div class="info"><label>Match:</label> {{ ticket[5] }} vs {{ ticket[6] }}</div>
+        <div class="info"><label>Match Date:</label> {{ ticket[4] }}</div>
+        <div class="info"><label>Seat No:</label> {{ ticket[1] }}</div>
+        <div class="info"><label>Price:</label> ₹{{ ticket[2] }}</div>
+
+        <form method="POST">
+            <label for="payment_status">Select Payment Status:</label>
+            <select name="payment_status" required>
+                <option value="">--Select--</option>
+                <option value="pending">Pending</option>
+                <option value="success">Success</option>
+            </select>
+            <button type="submit">Confirm Booking</button>
+        </form>
+
+        <a href="/view_tickets" class="back-link">← Back to Available Tickets</a>
+    </div>
+</body>
+</html>

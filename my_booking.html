@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Bookings</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #eef2f7;
+            padding: 40px;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 16px;
+        }
+        th, td {
+            padding: 12px;
+            text-align: center;
+            border-bottom: 1px solid #ccc;
+        }
+        th {
+            background: #007BFF;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Your Bookings</h2>
+        {% if bookings %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Booking ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Match</th>
+                    <th>Seat No</th>
+                    <th>Price (₹)</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for b in bookings %}
+                <tr>
+                    <td>{{ b[0] }}</td>
+                    <td>{{ b[1] }}</td>
+                    <td>{{ b[2] }}</td>
+                    <td>{{ b[7] }} vs {{ b[8] }}<br>{{ b[6] }}</td>
+                    <td>{{ b[4] }}</td>
+                    <td>{{ b[5] }}</td>
+                    <td>{{ b[9] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <p style="text-align:center;">No bookings found.</p>
+        {% endif %}
+    </div>
+</body>
+</html>
